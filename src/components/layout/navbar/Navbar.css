@@ -1,0 +1,13 @@
+.top-bar {
+  background-color: #f85606; 
+  font-size: 13px;
+}
+
+.top-link {
+  color: white;
+  text-decoration: none;
+}
+
+.top-link:hover {
+  color: #702a06;
+}

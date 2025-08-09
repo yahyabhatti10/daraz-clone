@@ -1,0 +1,17 @@
+.category-card {
+  width: 8rem;
+  height: 12rem !important;
+  border-radius: 0px !important;
+  /* position: relative; */
+}
+
+.category-card:hover {
+  z-index: 10;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+              -4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-card-body {
+  text-align: center;
+  padding: 0px;
+}

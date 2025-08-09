@@ -1,0 +1,20 @@
+.load-more-btn {
+  border-radius: 0px !important;
+  padding: 10px 20px !important;
+  color: #e4661e !important;
+  border-color: #e4661e !important;
+  background-color: transparent !important;
+  width: 400px !important;
+}
+
+.load-more-btn:hover {
+  background-color: #e4661e !important;
+  border-color: #e4661e !important;
+  color: #ffffff !important;
+}
+
+.load-more-btn:active {
+  background-color: #d4551c !important;
+  border-color: #d4551c !important;
+  color: #ffffff !important;
+}

@@ -3,25 +3,36 @@ import { FaSearch, FaShoppingCart } from 'react-icons/fa';
 import logo from "../../../assets/logo.png"
 import TopNavbar from '../navbar/Navbar';
 import './Header.css'; 
+import {Link} from 'react-router-dom';
 
 function Header() {
+
+  const navStyle = {
+      position: "fixed",
+      width: "100%",
+      top: 0,
+      left: 0,
+      zIndex: 2050,
+
+  }
   return (
     <>
-    <TopNavbar/>
+    <div style={navStyle}>
+      <TopNavbar/>
       <Navbar className="py-2 justify-content-center">
           <Navbar.Brand>
-            <img
+            <Link to="/"><img
               src={logo}
               alt=""
+              
               style={{ marginRight: '10px' }}
-            />
+            /></Link>
           </Navbar.Brand>
       
-          <Form className="d-flex w-50">
+          <Form style={{display: 'flex', width: '50%'}}>
             <FormControl
                 type="search"
                 placeholder="Search in Daraz"
-                className="border-0"
                 style={{
                   border: "none",
                   outline: "none",
@@ -50,6 +61,8 @@ function Header() {
             <FaShoppingCart/>
           </Button>
       </Navbar> 
+      </div>
+      <div style={{height:"102px"}}></div>
     </>
     
   );

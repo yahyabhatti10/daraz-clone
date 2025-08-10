@@ -3,7 +3,8 @@ function CountryIcon({ countryName, flagImage }) {
     const containerStyle = {
         display: 'flex',
         alignItems: 'center',
-        margin: '0 10px 5px 0'
+        margin: '0 10px 5px 0',
+        flexWrap: 'wrap',
     };
 
     const flagStyle = {

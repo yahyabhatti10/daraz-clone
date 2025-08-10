@@ -28,10 +28,6 @@ function PaymentMethods()
             <h6 style={{color: "#3b3b3bff"}}>Verified By</h6>
             <img src={verification} alt="Verified by" style={{height:"30px"}} />
          </Col>
-         <Col>
-         </Col>
-         <Col>
-         </Col>
         </>
     )
 }

@@ -3,7 +3,7 @@ function DarazAppAd()
 {
     return (
         <>
-            <img style={{height:"300px", width:"auto"}}src={darazAppAd} alt="Daraz App AD" />
+            <a href="https://play.google.com/store/apps/details?id=com.daraz.android"><img style={{height:"300px", width:"auto"}}src={darazAppAd} alt="Daraz App AD" /></a>
         </>
     )
 }

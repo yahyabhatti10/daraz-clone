@@ -1,6 +1,12 @@
 .navbar {
-  background-color: #f85606
+  background-color: #f85606;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2050;
 }
 .navbar-brand img {
   height: 40px;
 }
+

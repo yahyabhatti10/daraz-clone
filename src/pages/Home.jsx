@@ -4,9 +4,17 @@ import { Container, Row, Col } from 'react-bootstrap';
 import SaleAd from '../components/ads/saleAd/SaleAd'
 import CategoryList from "../components/category/categoryList/CategoryList";
 import ProductList from "../components/product/productList/ProductList";
+import SaleProductList from "../components/product/saleProductList/SaleProductList";
+import data from '../data/data';
 
 function Home()
 {
+
+    const products = Object.values(data).map(category => category.products)
+    console.log(products)
+    const allProducts = products.flat();
+    console.log(allProducts)
+
     return(
         <>
         <div style={{backgroundColor:"#f5f5f5"}}>
@@ -22,16 +30,24 @@ function Home()
           <Row>
             <Col style={{paddingTop:"10px", paddingBottom: "10px"}} md={12} >
               <SaleAd/>
+            </Col>  
+          </Row>
+          <Row>
+            <Col style={{paddingTop:"20px", paddingBottom: "10px"}} md={12} >
+              <h4 style={{marginLeft:"5px", fontSize: "20px", fontWeight:"400"}}>Flash Sale</h4>
+              <SaleProductList/>
             </Col>
           </Row>
           <Row>
-            <Col style={{paddingTop:"10px", paddingBottom: "10px"}} md={12}>
+            <Col style={{paddingTop:"20px", paddingBottom: "10px"}} md={12}>
+              <h4 style={{marginLeft:"10px" , fontSize: "20px", fontWeight:"400"}}>Categories</h4>
               <CategoryList />
             </Col>
           </Row>
           <Row>
-            <Col style={{paddingTop:"10px", paddingBottom: "10px"}} md={12}>
-              <ProductList />
+            <Col style={{paddingTop:"20px", paddingLeft:"0px" ,paddingBottom: "5px"}} md={12}>
+              <h4 style={{marginLeft:"30px", fontSize: "20px", fontWeight:"400"}}>Just for You</h4>
+              <ProductList products={allProducts}/>
             </Col>
           </Row>
         </Container>

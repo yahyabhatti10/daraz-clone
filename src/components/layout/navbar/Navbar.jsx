@@ -1,16 +1,26 @@
-import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import './Navbar.css'; 
 
-function Navbar() {
+function Navbar1() {
   return (
-    <div className="top-bar text-end px-3 py-1 text-white">
-      <Link to="" className="top-link me-3">SAVE MORE ON APP</Link>
-      <Link to="" className="top-link me-3">SELL ON DARAZ</Link>
-      <Link to="" className="top-link me-3">HELP & SUPPORT</Link>
-      <Link to="" className="top-link me-3">LOGIN</Link>
-      <Link to="" className="top-link me-3">SIGN UP</Link>
-    </div>
+    <>
+      <div className="top-bar">
+        <Navbar>
+        <Container>
+          <Nav className="ms-auto">
+            <Nav.Link className="top-link" href="#">SAVE MORE ON APP</Nav.Link>
+            <Nav.Link className="top-link" href="#">SELL ON DARAZ</Nav.Link>
+            <Nav.Link className="top-link" href="#">HELP & SUPPORT</Nav.Link>
+            <Nav.Link className="top-link" href="#">SIGN UP</Nav.Link>
+            <Nav.Link className="top-link" href="#">LOGIN</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      </div>
+    </>
   );
 }
 
-export default Navbar;
+export default Navbar1;

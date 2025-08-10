@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container, Form, FormControl, Button, Row, Col } from 'react-bootstrap';
 import { FaSearch, FaShoppingCart } from 'react-icons/fa';
-import logo from "../../../assets/logo.png"
+import logo from "../../../assets/logo/logo.png"
 import TopNavbar from '../navbar/Navbar';
 import './Header.css'; 
 import {Link} from 'react-router-dom';

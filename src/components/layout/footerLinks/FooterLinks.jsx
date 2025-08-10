@@ -2,7 +2,7 @@ import { Col, Row } from 'react-bootstrap';
 import AppStore from '../../../assets/downloadApp/appStore.png'
 import GooglePlay from '../../../assets/downloadApp/googlePlay.png'
 import AppGallery from '../../../assets/downloadApp/appGallery.png'
-import LogoBG from '../../../assets/logoBG.png'
+import LogoBG from '../../../assets/logo/logoBG.png'
 import './FooterLinks.css';
 
 function FooterLinks() {

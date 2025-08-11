@@ -35,7 +35,7 @@ function Home()
           <Row>
             <Col style={{paddingTop:"20px", paddingBottom: "10px"}} md={12} >
               <h4 style={{marginLeft:"5px", fontSize: "20px", fontWeight:"400"}}>Flash Sale</h4>
-              <SaleProductList/>
+              <SaleProductList showAll={false}/>
             </Col>
           </Row>
           <Row>

@@ -9,7 +9,7 @@ function CategoryList() {
   async function fetchCategories(){
     try
     {
-      const response = await fetch("http://localhost:8000/categories");
+      const response = await fetch("https://daraz-clone-s79b.onrender.com/categories");
       const data = await response.json()
       console.log("categories fetched", data)
       return data

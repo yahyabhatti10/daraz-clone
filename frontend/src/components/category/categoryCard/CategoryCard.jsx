@@ -7,7 +7,7 @@ function CategoryCard({ categoryKey, category }) {
   const navigate = useNavigate(); 
 
   function handleClick(){
-    navigate(`/category/${categoryKey}`)
+    navigate(`/products/${categoryKey}`)
   }
   return (
     <Card className="category-card" onClick={handleClick}>

@@ -14,7 +14,7 @@ function CategoryProducts() {
     async function fetchCategoryProducts(){
       try
       {
-        const response = await fetch(`https://daraz-clone-s79b.onrender.com//products/${categoryKey}`);
+        const response = await fetch(`https://daraz-clone-s79b.onrender.com/products/${categoryKey}`);
         const data = await response.json()
         console.log("products of category fetched", data)
         return data

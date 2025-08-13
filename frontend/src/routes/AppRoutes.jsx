@@ -17,7 +17,7 @@ function AppRoutes()
         <Header/>
             <Routes>
                 <Route path="" element={<Home/>}/>
-                <Route path="/category/:categoryKey" element={<CategoryProducts/>} />
+                <Route path="/products/:categoryKey" element={<CategoryProducts/>} />
                 <Route path="/sale-products" element={<SaleProducts/>} />
             </Routes>
         </BrowserRouter>

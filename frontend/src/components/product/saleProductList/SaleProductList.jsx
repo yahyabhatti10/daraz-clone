@@ -1,20 +1,18 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import './SaleProductList.css'; 
-import data from "../../../data/data";
+// import data from "../../../data/data";
 import ProductCard from "../productCard/ProductCard";
 import { useNavigate } from "react-router-dom";
 
 
-function SaleProductList({showAll=true}){
+function SaleProductList({saleProducts, showAll=true}){
 
 
     const navigate = useNavigate();
 
-    let saleProducts = Object.values(data)
-    .map(category => category.products.find(product => product.onSale))
-    .filter(Boolean)
+    let showSaleProducts = saleProducts
     if(!showAll ){
-      saleProducts = saleProducts.slice(0, 6);
+      showSaleProducts = showSaleProducts.slice(0, 6);
     }
 
 
@@ -35,7 +33,7 @@ function SaleProductList({showAll=true}){
 }
               <hr/>
               <Row className="sale-product-bottom">
-                {saleProducts.map((product, index) => (
+                {showSaleProducts.map((product, index) => (
                   <Col style={{padding: "0px", margin: "0px",}}key={index} md={2} sm={4} xs={6}>
                     <ProductCard product={product} showSale={true}/>
                   </Col>

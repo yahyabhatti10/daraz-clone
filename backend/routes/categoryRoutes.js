@@ -1,16 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Category = require("../models/Category");
+const {getCategories} = require("../controllers/categoryController")
 
-router.get("/", async (req, res) => {
-  // console.log("hello from categories route");
-  // res.send("hello from categories route");
-  try {
-    const categories = await Category.find();
-    res.json(categories);
-  } catch (error) {
-    res.status(500).json({ message: "Server error", error: error.message });
-  }
-});
+router.get("/", getCategories);
  
 module.exports = router;

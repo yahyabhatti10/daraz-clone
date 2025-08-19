@@ -6,7 +6,7 @@ export function ProductProvider({ children }) {
 
   useEffect(() => {
     async function fetchProducts() {
-      const response = await fetch("https://daraz-clone-s79b.onrender.com/products");
+      const response = await fetch("http://localhost:8000/products");
       const data = await response.json();
       setProducts(data);
     }

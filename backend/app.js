@@ -1,14 +1,18 @@
-const express = require('express');
+const express = require('express')
 const cors = require('cors')
-const app = express();
+const app = express()
 
-app.use(cors());
-app.use(express.json());
+app.use(cors())
+app.use(express.json())
 
-const categoryRoutes = require('./routes/categoryRoutes');
-const productRoutes = require('./routes/productRoutes');
+const categoryRoutes = require('./routes/categoryRoutes')
+const productRoutes = require('./routes/productRoutes')
+const userRoutes = require('./routes/userRoutes')
+const protectedRoutes = require('./routes/protectedRoutes')
 
-app.use('/categories', categoryRoutes);
-app.use('/products', productRoutes);
+app.use('/categories', categoryRoutes)
+app.use('/products', productRoutes)
+app.use('/', userRoutes)
+app.use('/', protectedRoutes)
 
-module.exports = app; 
+module.exports = app

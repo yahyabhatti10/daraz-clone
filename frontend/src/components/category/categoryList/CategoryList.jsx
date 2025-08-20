@@ -1,35 +1,49 @@
 // import data from '../../../data/data';
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import CategoryCard from '../categoryCard/CategoryCard'
+import {
+  selectAllCategories,
+  getCategoriesStatus,
+} from '../../../store/categories/categorySlice'
+import { useDispatch, useSelector } from 'react-redux'
+import fetchCategories from '../../../store/categories/categoryThunk'
 
 function CategoryList() {
-  const [data, setData] = useState([])
+  // const [data, setData] = useState([])
 
-  async function fetchCategories() {
-    try {
-      const response = await fetch(
-        'https://daraz-clone-s79b.onrender.com/categories'
-      )
-      const data = await response.json()
-      console.log('categories fetched', data)
-      return data
-    } catch (error) {
-      console.log('Error', error)
-    }
-  }
+  // async function fetchCategories() {
+  //   try {
+  //     const response = await fetch('https://daraz-clone-s79b.onrender.com/categories')
+  //     const data = await response.json()
+  //     console.log('categories fetched', data)
+  //     return data
+  //   } catch (error) {
+  //     console.log('Error', error)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   async function getCategories() {
+  //     const categories = await fetchCategories()
+  //     if (!categories || !Array.isArray(categories)) {
+  //       console.error('Invalid categories data:', categories)
+  //       return
+  //     }
+  //     setData(categories)
+  //     console.log('get categories in useeffect', categories)
+  //   }
+  //   getCategories()
+  // }, [])
+
+  const dispatch = useDispatch()
+  const categories = useSelector(selectAllCategories)
+  const status = useSelector(getCategoriesStatus)
 
   useEffect(() => {
-    async function getCategories() {
-      const categories = await fetchCategories()
-      if (!categories || !Array.isArray(categories)) {
-        console.error('Invalid categories data:', categories)
-        return
-      }
-      setData(categories)
-      console.log('get categories in useeffect', categories)
+    if (status === 'idle') {
+      dispatch(fetchCategories())
     }
-    getCategories()
-  }, [])
+  }, [status, dispatch])
 
   return (
     <>
@@ -42,7 +56,7 @@ function CategoryList() {
         className="category-list"
         style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
       >
-        {data.map((category) => (
+        {categories.map((category) => (
           <CategoryCard
             key={category._id}
             categoryKey={category._id}

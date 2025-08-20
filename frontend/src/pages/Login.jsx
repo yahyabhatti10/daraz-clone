@@ -33,14 +33,17 @@ function Login() {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: form.email,
-          password: form.password,
-        }),
-      })
+      const response = await fetch(
+        'https://daraz-clone-s79b.onrender.com/login',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: form.email,
+            password: form.password,
+          }),
+        }
+      )
       const data = await response.json()
       if (response.ok) {
         localStorage.setItem('accessToken', data.accessToken)

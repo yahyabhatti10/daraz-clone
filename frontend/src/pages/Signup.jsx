@@ -66,16 +66,19 @@ function Signup() {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          email: form.email,
-          password: form.password,
-        }),
-      })
+      const response = await fetch(
+        'https://daraz-clone-s79b.onrender.com/signup',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: form.firstName,
+            lastName: form.lastName,
+            email: form.email,
+            password: form.password,
+          }),
+        }
+      )
       const data = await response.json()
       if (response.ok) {
         alert('Signup successful! Please log in.')

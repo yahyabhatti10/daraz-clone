@@ -12,18 +12,21 @@ function Dashboard() {
   useEffect(() => {
     const fetchDashboard = async () => {
       let refreshToken = localStorage.getItem('refreshToken')
-      let res = await fetch('http://localhost:8000/dashboard', {
+      let res = await fetch('https://daraz-clone-s79b.onrender.com/dashboard', {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       let result = await res.json()
       console.log(result)
 
       if (res.status === 401 || res.status === 403) {
-        const refreshRes = await fetch('http://localhost:8000/refresh-token', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ refreshToken }),
-        })
+        const refreshRes = await fetch(
+          'https://daraz-clone-s79b.onrender.com/refresh-token',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ refreshToken }),
+          }
+        )
         console.log('refresh token api called')
         const refreshData = await refreshRes.json()
         console.log(refreshData)
@@ -68,11 +71,14 @@ function Dashboard() {
                 onClick={async () => {
                   const refreshToken = localStorage.getItem('refreshToken')
                   try {
-                    await fetch('http://localhost:8000/logout', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ refreshToken }),
-                    })
+                    await fetch(
+                      'https://daraz-clone-s79b.onrender.com/logout',
+                      {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ refreshToken }),
+                      }
+                    )
                   } catch (err) {
                     console.error('Logout error:', err.message)
                     console.error('Logout error:', err)

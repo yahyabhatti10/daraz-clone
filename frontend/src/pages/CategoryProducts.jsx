@@ -3,6 +3,7 @@ import ProductList from '../components/product/productList/ProductList'
 // import data from "../data/data";
 import { Container, Row, Col } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function CategoryProducts() {
   const { categoryKey } = useParams()
@@ -12,7 +13,7 @@ function CategoryProducts() {
   async function fetchCategoryProducts() {
     try {
       const response = await fetch(
-        `https://daraz-clone-s79b.onrender.com/products/${categoryKey}`
+        `${baseUrl}/products/${categoryKey}`
       )
       const data = await response.json()
       console.log('products of category fetched', data)

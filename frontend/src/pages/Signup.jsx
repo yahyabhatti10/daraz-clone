@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom'
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function Signup() {
   const [form, setForm] = useState({
@@ -67,7 +68,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        'https://daraz-clone-s79b.onrender.com/signup',
+        `${baseUrl}/signup`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

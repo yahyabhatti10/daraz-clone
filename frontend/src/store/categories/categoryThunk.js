@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const fetchCategories = createAsyncThunk(
   'categories/fetchCategories',
   async () => {
     const response = await fetch(
-      'https://daraz-clone-s79b.onrender.com/categories'
+      `${baseUrl}/categories`
     )
     const data = await response.json()
     return data

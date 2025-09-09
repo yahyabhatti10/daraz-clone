@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ProductContext } from './ProductContext'
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export function ProductProvider({ children }) {
   const [products, setProducts] = useState([])
@@ -7,7 +8,7 @@ export function ProductProvider({ children }) {
   useEffect(() => {
     async function fetchProducts() {
       const response = await fetch(
-        'https://daraz-clone-s79b.onrender.com/products'
+        `${baseUrl}/products`
       )
       const data = await response.json()
       setProducts(data)

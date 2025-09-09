@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function Login() {
   const [form, setForm] = useState({
@@ -34,7 +35,7 @@ function Login() {
 
     try {
       const response = await fetch(
-        'https://daraz-clone-s79b.onrender.com/login',
+        `${baseUrl}/login`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

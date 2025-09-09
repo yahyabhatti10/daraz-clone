@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function Dashboard() {
   const [data, setData] = useState(null)
@@ -12,22 +13,19 @@ function Dashboard() {
   useEffect(() => {
     const fetchDashboard = async () => {
       let refreshToken = localStorage.getItem('refreshToken')
-      let res = await fetch('https://daraz-clone-s79b.onrender.com/dashboard', {
+      let res = await fetch(`${baseUrl}/dashboard`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       let result = await res.json()
       console.log(result)
 
       if (res.status === 401 || res.status === 403) {
-        const refreshRes = await fetch(
-          'https://daraz-clone-s79b.onrender.com/refresh-token',
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ refreshToken }),
-          }
-        )
-        console.log('refresh token api called')
+        const refreshRes = await fetch(`${baseUrl}/refresh-token`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ refreshToken }),
+        })
+        // console.log('refresh token api called')
         const refreshData = await refreshRes.json()
         console.log(refreshData)
         if (refreshRes.ok && refreshData.accessToken) {
@@ -72,7 +70,7 @@ function Dashboard() {
                   const refreshToken = localStorage.getItem('refreshToken')
                   try {
                     await fetch(
-                      'https://daraz-clone-s79b.onrender.com/logout',
+                      `${baseUrl}/logout`,
                       {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
